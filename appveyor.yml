@@ -14,12 +14,12 @@ before_build:
   - luarocks install luacov-coveralls
   - luarocks install busted
 
-#build_script:
+build_script:
 #  - luarocks make
-
-build: off
+  - echo "Build"
 
 test_script:
+  - luacheck $TRAVIS_BUILD_DIR/list.lua
   - busted
 
 on_success:
