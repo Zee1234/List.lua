@@ -21,6 +21,3 @@ build_script:
 test_script:
   - luacheck %APPVEYOR_BUILD_FOLDER%/src/list.lua 
   - busted
-
-on_success:
-  - luacov-coveralls -i %APPVEYOR_BUILD_FOLDER%/src/list.lua
