@@ -19,8 +19,8 @@ build_script:
   - echo "Build"
 
 test_script:
-  - luacheck $TRAVIS_BUILD_DIR/src/list.lua
+  - luacheck %APPVEYOR_BUILD_FOLDER%/src/list.lua
   - busted
 
 on_success:
-  - luacov-coveralls -i $TRAVIS_BUILD_DIR/src/list.lua
+  - luacov-coveralls -i %APPVEYOR_BUILD_FOLDER%/src/list.lua
