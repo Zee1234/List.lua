@@ -1,0 +1,24 @@
+environment:
+  matrix:
+  - LUA: "luajit 2.1"
+
+before_build:
+  - set PATH=C:\Python27\Scripts;%PATH% # Add directory containing 'pip' to PATH
+  - pip install hererocks
+  - hererocks env --%LUA% -rlatest
+  - call env\bin\activate
+  
+#  - luarocks install luafilesystem # Only needed if app needs it OR using coveralls on folders
+  - luarocks install luacheck
+  - luarocks install luacov
+  - luarocks install luacov-coveralls
+  - luarocks install busted
+
+build_script:
+  - luarocks make
+
+test_script:
+  - busted
+
+on_success:
+  - luacov-coveralls -i $TRAVIS_BUILD_DIR/src/list.lua
