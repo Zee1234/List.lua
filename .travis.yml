@@ -20,7 +20,7 @@ before_install:
   - luarocks install busted
 
 install:
-  - luarocks make
+#  - luarocks make
 
 script:
   - luacheck $TRAVIS_BUILD_DIR/list.lua --config $TRAVIS_BUILD_DIR/.luacheckrc.lua
