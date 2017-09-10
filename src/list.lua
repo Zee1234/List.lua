@@ -9,7 +9,7 @@ end
 
 
 
-function List:new(generator)
+function List.new(generator)
   generator = generator or function(_,i)
     return tostring(i)
   end
@@ -128,7 +128,7 @@ end
 function List:iter(prev)
   local index = prev + 1
   local value, id
-  done = false
+  local done = false
   repeat
     if self[index] then
       value = self[index]

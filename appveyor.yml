@@ -19,7 +19,7 @@ build_script:
   - echo "Build"
 
 test_script:
-  - luacheck %APPVEYOR_BUILD_FOLDER%/src/list.lua
+  - luacheck %APPVEYOR_BUILD_FOLDER%/src/list.lua 
   - busted
 
 on_success:
