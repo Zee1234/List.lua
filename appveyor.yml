@@ -14,8 +14,10 @@ before_build:
   - luarocks install luacov-coveralls
   - luarocks install busted
 
-build_script:
+#build_script:
 #  - luarocks make
+
+build: off
 
 test_script:
   - busted
