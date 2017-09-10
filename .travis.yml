@@ -23,7 +23,7 @@ install:
 #  - luarocks make
 
 script:
-  - luacheck $TRAVIS_BUILD_DIR/list.lua
+  - luacheck $TRAVIS_BUILD_DIR/src/list.lua
   - busted
 
 after_success:
