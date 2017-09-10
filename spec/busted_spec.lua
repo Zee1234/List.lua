@@ -1,10 +1,12 @@
 local List = require('list')
 
+local function genericGenerator(_, d) return d end
+
 describe('New instances forming', function()
   it('checks that new instances are identical, but not equal', function()
-    assert.are.same(List:new(), List:new(), {
+    assert.are.same(List:new(genericGenerator), List:new(genericGenerator), {
       _store = {
-        generator = generator;
+        generator = genericGenerator;
         n = 0;
         empty = {};
         pairs = {};
