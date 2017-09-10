@@ -15,7 +15,7 @@ before_build:
   - luarocks install busted
 
 build_script:
-  - luarocks make
+#  - luarocks make
 
 test_script:
   - busted
