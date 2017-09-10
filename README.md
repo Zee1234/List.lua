@@ -1,0 +1,1 @@
+A simple list-like class created for sOS
