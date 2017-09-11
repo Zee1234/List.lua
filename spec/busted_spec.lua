@@ -3,8 +3,7 @@ local List = require('list')
 local function genericGenerator(_, d) return d end -- Identical to List's default generator
 local function gen(d) return d end -- Returns all data to use as key, good for testing
 
-local function random
-math.randomseed(os.clock*1000)
+math.randomseed(os.clock()*1000)
 math.random()
 math.random()
 math.random()
