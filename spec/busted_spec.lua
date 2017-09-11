@@ -191,9 +191,10 @@ describe('Iteration:', function()
 
       local removes = {}
       for i=1, 30, 1 do
-        if not removes[tostring(i)] then
-          removes[tostring(i)] = true
-          table.insert(removes, i)
+        local num = math.random(1,122-65)
+        if not removes[tostring(num)] then
+          removes[tostring(num)] = true
+          table.insert(removes, num)
         end
       end
 
