@@ -120,6 +120,25 @@ end
 
 
 
+function List:removeReturn(uid)
+  if not self[uid] and self[uid] ~= false then
+    -- return 'error'
+    return nil, 'Tried to remove a non-member'
+  end
+  local save = self[uid]
+  self:remove(uid)
+  return save
+end
+
+
+
+
+
+
+
+
+
+
 function List:getIndex(id)
   return self._store.pairs[id]
 end
