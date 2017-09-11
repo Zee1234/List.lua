@@ -59,3 +59,30 @@ describe('Chained methods', function()
     })
   end)
 end)
+
+describe('`removeReturn`', function()
+
+  it('removes properly',function() 
+    local listA = List.new(gen):write('a')
+    local ret = listA:removeReturn('a')
+    local store = listA._store
+    assert.are.same(listA, {
+      _store = store
+    })
+  end)
+
+  it('returns properly', function()
+    local listA = List.new(gen):write('a')
+    local arbitrary = {
+      [Math.random()] = Math.random();
+      [Math.random()] = Math.random();
+    }
+    listA:write(arbitrary)
+    local ret = List.removeReturn(2)
+
+    local listB = List.new(gen):write('a')
+    listB:write('b'):remove('b')
+
+    assert.are.same(listA, listB)
+  end)
+end)
