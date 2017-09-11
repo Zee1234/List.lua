@@ -32,7 +32,7 @@ end)
 describe('Chained methods', function()
   it('continue to function if no error', function()
     assert.is.truthy(
-      List.new()
+      List.new(gen)
           :write('a')
           :write('b')
           :write('c')
