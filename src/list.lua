@@ -88,7 +88,7 @@ function List:remove(uid)
     id = uid
     index = self._store.pairs[id]
   end
-  
+
   do
     local empty = self._store.empty
     local i = #empty
