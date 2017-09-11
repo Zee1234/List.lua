@@ -83,18 +83,27 @@ function List:remove(uid)
   local index, id
   if type(uid) == 'number' then
     index = uid
-    id = self._store.generator(self[index])
+    id = self._store.generator(self[index],index)
   else
     id = uid
     index = self._store.pairs[id]
   end
-
-  for i,v in ipairs(self._store.empty) do
-    if v > index then
-      insert(self._store.empty, i, index)
+  
+  do
+    local empty = self._store.empty
+    local i = #empty
+    if not empty[i] or empty[i] < index then
+      insert(empty, index)
+    else
+      repeat
+        i = i - 1
+        if not empty[i] or empty[i] < index then
+          insert(empty, i+1, index)
+          break;
+        end
+      until i == 0
     end
   end
-  self._store.empty[tostring(index)] = true
 
   self._store.pairs[id] = nil
   self[index] = nil
