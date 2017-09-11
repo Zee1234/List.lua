@@ -191,7 +191,7 @@ describe('Iteration:', function()
 
       local removes = {}
       for i=1, 30, 1 do
-        if !removes[tostring(i)] then
+        if not removes[tostring(i)] then
           removes[tostring(i)] = true
           table.insert(removes, i)
         end
@@ -203,7 +203,7 @@ describe('Iteration:', function()
 
       local keptVals, listVals = {}, {}
       for i, v in ipairs(vals) do
-        if !removes[tostring(i)] then
+        if not removes[tostring(i)] then
           table.insert(keptVals, v)
         end
       end
