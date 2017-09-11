@@ -29,3 +29,8 @@ script:
 after_success:
   - luacov-coveralls
 #  - luacov-coveralls -i $TRAVIS_BUILD_DIR/src/list.lua
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
