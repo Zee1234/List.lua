@@ -78,11 +78,12 @@ describe('`removeReturn`', function()
       [math.random()] = math.random();
     }
     listA:write(arbitrary)
-    local ret = List:removeReturn(2)
+    local ret = listA:removeReturn(2)
 
     local listB = List.new(gen):write('a')
     listB:write('b'):remove('b')
 
+    assert.are.equals(ret, arbitrary)
     assert.are.same(listA, listB)
   end)
 end)
