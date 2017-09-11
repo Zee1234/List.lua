@@ -9,7 +9,6 @@ before_build:
   - call env\bin\activate
   
 #  - luarocks install luafilesystem # Only needed if app needs it OR using coveralls on folders
-  - luarocks install luacheck
   - luarocks install luacov
   - luarocks install luacov-coveralls
   - luarocks install busted
@@ -19,5 +18,4 @@ build_script:
   - echo "Build"
 
 test_script:
-  - luacheck %APPVEYOR_BUILD_FOLDER%/src/list.lua 
   - busted
