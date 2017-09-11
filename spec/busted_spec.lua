@@ -191,9 +191,10 @@ describe('Iteration:', function()
 
       local removes = {}
       for i=1, 30, 1 do
-        if removes[tostring(i)] then continue; end
-        removes[tostring(i)] = true
-        table.insert(removes, i)
+        if !removes[tostring(i)] then
+          removes[tostring(i)] = true
+          table.insert(removes, i)
+        end
       end
 
       for _, v in ipairs(removes) do
@@ -202,8 +203,9 @@ describe('Iteration:', function()
 
       local keptVals, listVals = {}, {}
       for i, v in ipairs(vals) do
-        if removes[tostring(i)] then continue; end
-        table.insert(keptVals, v)
+        if !removes[tostring(i)] then
+          table.insert(keptVals, v)
+        end
       end
       for index, val, id in listA:iterate() do
         table.insert(listVals, val)
