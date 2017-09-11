@@ -115,8 +115,8 @@ describe('`getIndex`', function()
                       :remove('c')
                       :write('e')
     
-    assert.is.true(listA:getIndex('e') == 2)
-    assert.is.true(listA:getIndex('b') == nil)
+    assert.is.truthy(listA:getIndex('e') == 2)
+    assert.is.truthy(listA:getIndex('b') == nil)
   end)
 end)
 
