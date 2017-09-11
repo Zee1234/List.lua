@@ -74,8 +74,8 @@ describe('`removeReturn`', function()
   it('returns properly', function()
     local listA = List.new(gen):write('a')
     local arbitrary = {
-      [Math.random()] = Math.random();
-      [Math.random()] = Math.random();
+      [math.random()] = math.random();
+      [math.random()] = math.random();
     }
     listA:write(arbitrary)
     local ret = List.removeReturn(2)
