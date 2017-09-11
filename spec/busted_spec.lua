@@ -78,7 +78,7 @@ describe('`removeReturn`', function()
       [math.random()] = math.random();
     }
     listA:write(arbitrary)
-    local ret = List.removeReturn(2)
+    local ret = List:removeReturn(2)
 
     local listB = List.new(gen):write('a')
     listB:write('b'):remove('b')
