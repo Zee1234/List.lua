@@ -189,6 +189,10 @@ describe('Iteration:', function()
         listA:write(vals[#vals])
       end
 
+      for index, value, id in listA:iterate() do
+        assert.are.same(listA[index], listA[id], value, vals[index])
+      end
+
       local removes = {}
       for i=1, 30, 1 do
         local num = math.random(1,122-65)
@@ -208,8 +212,8 @@ describe('Iteration:', function()
           table.insert(keptVals, v)
         end
       end
-      for index, val, id in listA:iterate() do
-        table.insert(listVals, val)
+      for index, value, id in listA:iterate() do
+        table.insert(listVals, value)
       end
 
       assert.are.same(listVals, keptVals)
