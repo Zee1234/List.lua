@@ -170,7 +170,7 @@ describe('Iteration:', function()
       local listA = List.new(gen)
       local vals = {}
       for i=65, 122, 1 do
-        vals.insert(string.char(i)..tostring(i-64))
+        table.insert(vals, string.char(i)..tostring(i-64))
         listA:write(vals[#vals])
       end
       
