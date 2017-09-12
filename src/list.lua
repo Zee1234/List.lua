@@ -162,7 +162,7 @@ function List:iter(prev)
   repeat
     if self[index] then
       value = self[index]
-      id = self._store.generator(self[index])
+      id = self._store.generator(self[index],index)
       done = true
     elseif self._store.empty[tostring(index)] then
       index = index + 1
