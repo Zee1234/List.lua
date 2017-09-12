@@ -94,11 +94,13 @@ function List:remove(uid)
     local i = #empty
     if not empty[i] or empty[i] < index then
       insert(empty, index)
+      empty[tostring(index)] = 1
     else
       repeat
         i = i - 1
         if not empty[i] or empty[i] < index then
           insert(empty, i+1, index)
+          empty[tostring(index)] = i+1
           break;
         end
       until i == 0
