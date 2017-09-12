@@ -8,13 +8,13 @@ before_build:
   - hererocks env --%LUA% -rlatest
   - call env\bin\activate
   
-#  - luarocks install luafilesystem # Only needed if app needs it OR using coveralls on folders
+  - luarocks install luafilesystem
   - luarocks install luacov
   - luarocks install luacov-coveralls
   - luarocks install busted
 
 build_script:
-#  - luarocks make
+  - luarocks make
   - echo "Build"
 
 test_script:

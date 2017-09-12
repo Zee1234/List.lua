@@ -13,14 +13,14 @@ before_install:
   - hererocks env --$LUA -rlatest
   - source env/bin/activate
 
-#  - luarocks install luafilesystem # Only needed if app needs it OR using coveralls on folders
+  - luarocks install luafilesystem
   - luarocks install luacheck
   - luarocks install luacov
   - luarocks install luacov-coveralls
   - luarocks install busted
 
 install:
-#  - luarocks make
+  - luarocks make
 
 script:
   - luacheck $TRAVIS_BUILD_DIR/src/list.lua
