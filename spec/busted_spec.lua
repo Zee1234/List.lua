@@ -220,3 +220,41 @@ describe('Iteration:', function()
     end)
   end)
 end)
+
+
+
+
+
+describe('Default generator', function()
+  it('functions properly', function()
+    local listA = List.new():write('a'):write('b')
+    assert.are.same(listA[1], listA['1'])
+    assert.are.same(listA[2], listA['2'])
+  end)
+end)
+
+
+
+
+
+describe('Errors (nil returned)', function()
+  local listA = List.new(gen):write('a'):write('b')
+
+  it('when defining value with same ID', function()
+    local ret, str = listA:write('a')
+    assert.is.truthy(ret == nil)
+    assert.is.truthy(type(str) == 'string')
+  end)
+
+
+  it('when removing non-member', function()
+    local ret, str = listA:remove(100)
+    assert.is.truthy(ret == nil)
+    assert.is.truthy(type(str) == 'string')
+
+    local ret2, str2 = listA:removeReturn(100)
+    assert.is.truthy(ret2 == nil)
+    assert.is.truthy(type(str2) == 'string')
+
+  end)
+end)
