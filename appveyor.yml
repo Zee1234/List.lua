@@ -20,6 +20,9 @@ build_script:
 test_script:
   - busted
 
+on_success:
+  - luacov-coveralls
+
 notifications:
   - provider: Email
     on_build_success: false
