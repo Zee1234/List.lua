@@ -257,4 +257,15 @@ describe('Errors (nil returned)', function()
     assert.is.truthy(type(str2) == 'string')
 
   end)
+
+
+  it('when trying to write a value that cannot be converted into an ID by the generator', function()
+    local listB = List.new(function(data)
+      return data.name
+    end)
+    listB:write { name = 'hi' }
+    local ret, str = listB:write{}
+    assert.is.truthy(ret == nil)
+    assert.is.truthy(type(str) == 'string')
+  end)
 end)

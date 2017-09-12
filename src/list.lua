@@ -66,6 +66,7 @@ function List:write(data)
   end
 
   local id = self._store.generator(data, index)
+  if id == nil then return nil, 'Tried to enter data incompatible with supplied generator!' end
   if type(id) == 'number' then id = tostring(id) end
   if self[id] and self[id] ~= false then
     -- return 'error'
