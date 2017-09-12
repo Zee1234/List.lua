@@ -176,7 +176,7 @@ end
 
 
 
-function List:iter(prev)
+function List:next(prev)
   local index = prev + 1
   local value, id
   local done = false
@@ -196,7 +196,7 @@ function List:iter(prev)
 end
 
 function List:iterate()
-  return self.iter, self, 0
+  return self.next, self, 0
 end
 
 

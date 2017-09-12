@@ -125,7 +125,7 @@ end)
 
 
 describe('Iteration:', function()
-  describe('`iter`:', function()
+  describe('`next`:', function()
     it('returns next element', function()
       local vals = {'a', 'b', 'c', 'd', 'e'}
       local listA = List.new(gen)
@@ -137,17 +137,17 @@ describe('Iteration:', function()
                         :remove(vals[3])
                         :write(vals[5])
       
-      for index, value, id in listA.iter, listA, 0 do
+      for index, value, id in listA.next, listA, 0 do
         local i = 1
         assert.are.equals(listA[index], value, listA[id], id, listA[i], vals[1])
         break;
       end
-      for index, value, id in listA.iter, listA, 1 do
+      for index, value, id in listA.next, listA, 1 do
         local i = 2
         assert.are.equals(listA[index], value, listA[id], id, listA[i], vals[5])
         break;
       end
-      for index, value, id in listA.iter, listA, 2 do
+      for index, value, id in listA.next, listA, 2 do
         local i = 4
         assert.are.equals(listA[index], value, listA[id], id, listA[i], vals[4])
         break;
@@ -158,9 +158,9 @@ describe('Iteration:', function()
 
     it('is returned by `iterate`', function()
       local listA = List.new()
-      local iter, tab = List:iterate()
+      local next, tab = List:iterate()
 
-      assert.are.same(iter, List.iter)
+      assert.are.same(next, List.next)
     end)
   end)
 
